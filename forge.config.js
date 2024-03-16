@@ -4,7 +4,8 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon: "build/img/terabit"
+    icon: "build/img/terabit",
+    name: 'terabit_desktop'
   },
   rebuildConfig: {},
   makers: [

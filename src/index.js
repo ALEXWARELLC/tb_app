@@ -56,4 +56,12 @@ app.on('activate', () => {
     CreateWindow();
   }
 });
+
+// -----------------------------------------
+
+app.whenReady().then(() => {
+  protocol.handle('terabit', (request) =>
+    console.log(request.url.slice('terabit://'.length))
+)});
+
 // -----------------------------------------

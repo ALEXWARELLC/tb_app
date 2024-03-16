@@ -30,6 +30,17 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@electron/asar": "^3.2.9",
     "electron-squirrel-startup": "^1.0.0"
+  },
+  "build": {
+    "protocols": [
+      {
+        "name": "Terabit Protocol",
+        "schemes": [
+          "terabit"
+        ]
+      }
+    ]
   }
 }
