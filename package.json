@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "compile": "electron-packager . TerabitDesktop --all --asar --icon build/img/terabit.ico",
+    "compile": "electron-packager . --all --asar --icon build/img/terabit.ico --path ./out",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
@@ -33,14 +33,29 @@
     "@electron/asar": "^3.2.9",
     "electron-squirrel-startup": "^1.0.0"
   },
-  "build": {
-    "protocols": [
-      {
-        "name": "Terabit Protocol",
-        "schemes": [
-          "terabit"
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "protocols": [
+          {
+            "icon": "build/img/terabit.ico",
+            "name": "Terabit Dashboard",
+            "schemes": [
+              "terabit"
+            ]
+          }
         ]
-      }
-    ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "mimeType": [
+              "x-scheme-handler/terabit"
+            ]
+          }
+        }
+      ]
+    }
   }
 }
