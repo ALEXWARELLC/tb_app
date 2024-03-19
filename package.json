@@ -7,10 +7,7 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "compile": "electron-packager . --all --asar --icon build/img/terabit.ico --path ./out",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "compile": "electron-packager . --all --asar --icon build/img/terabit.ico --path ./out"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.3.0",
@@ -21,7 +18,9 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
     "@electron-forge/plugin-fuses": "^7.3.0",
     "@electron/fuses": "^1.7.0",
-    "electron": "29.1.4"
+    "electron": "29.1.4",
+    "electron-prebuilt-compile": "8.2.0",
+    "eslint": "^8.57.0"
   },
   "keywords": [],
   "author": {
@@ -31,7 +30,8 @@
   "license": "MIT",
   "dependencies": {
     "@electron/asar": "^3.2.9",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "source-map-url": "^0.4.1"
   },
   "config": {
     "forge": {
