@@ -7,7 +7,8 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "compile": "electron-packager . --all --asar --icon build/img/terabit.ico --path ./out"
+    "compile": "electron-packager . --all --asar --icon build/img/terabit.ico --path=./out --protocol=terabit --protocol-name=Terabit --overwrite",
+    "winonly": "electron-packager . --all --asar --icon build/img/terabit.ico --path=./out --platform=win32 --arch=x64 --overwrite"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.3.0",
