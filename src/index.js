@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, protocol } = require('electron');
 const path = require('path');
 
 if (require('electron-squirrel-startup')) {
