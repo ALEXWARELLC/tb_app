@@ -14,7 +14,9 @@ const MenuTemplate = [
     label: 'Terabit Desktop',
     submenu: [
         // { label: 'About Terabit Desktop', click: () => { app.exit() }},
-        { label: 'Quit', click: () => { app.exit() }}
+        { label: 'Settings', accelerator: "CmdOrCtrl+S", click: () => {  }},
+        { type: 'separator' },
+        { label: 'Quit', accelerator: "CmdOrCtrl+Q", click: () => { app.exit() }}
     ]
   },
   {
@@ -23,6 +25,7 @@ const MenuTemplate = [
         { label: 'Dashboard', click: () => { MainWindow.loadURL("https://gaming.terabit.io/"); }},
         { label: 'Client Area', click: () => { MainWindow.loadURL("https://my.terabit.io/"); }},
         { label: 'Admin Area', click: () => { MainWindow.loadURL("https://gaming.terabit.io/admin"); }},
+        { type: 'separator', label: 'Other Services' },
         { label: 'Tenantos', click: () => { MainWindow.loadURL("https://dcs.terabit.io/")}},
         { label: 'VirtFusion', click: () => { MainWindow.loadURL("https://vps.terabit.io/")}}
     ]
@@ -30,14 +33,14 @@ const MenuTemplate = [
 ]
 
 const ShowSplashScreen = () => {
-  SplashScreenWindow = new BrowserWindow({width: 620, height: 300, transparent: true, frame: false, alwaysOnTop: true});
+  SplashScreenWindow = new BrowserWindow({width: 620, height: 300, transparent: true, frame: false, alwaysOnTop: true, resizable: false});
   SplashScreenWindow.loadURL(`file://${__dirname}/splash.html`);
 };
 
 const CreateWindow = () => {
   ShowSplashScreen();
   MainWindow = new BrowserWindow({
-    minWidth: 1366,
+    minWidth: 1280,
     minHeight: 720,
     icon: "img/terabit.png",
     show: false,
@@ -72,10 +75,20 @@ app.on('activate', () => {
 
 // -----------------------------------------
 
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: 'terabit',
+    privileges: {
+      secure: true,
+      standard: true,
+      supportFetchAPI: false,
+    },
+  },
+]);
+
 app.whenReady().then(() => {
-  protocol.handle('terabit', (request) =>
-    console.log(request.url.slice('terabit://'.length))
-)});
+  protocol.handle('terabit', (request) => console.log(request.url.slice('terabit://'.length))).catch(() => { return; })
+});
 
 // -----------------------------------------
 
