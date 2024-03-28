@@ -44,6 +44,8 @@ const CreateWindow = () => {
     minHeight: 720,
     icon: "img/terabit.png",
     show: false,
+    resizable: true,
+    maximizable: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       devTools: process.argv.includes("--enable-devtools"),

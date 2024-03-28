@@ -8,14 +8,19 @@
 <body>
     <div class="cover">
         <h1 class="title">Terabit Desktop</h1>
+        <h4 class="subtitle">BY ALEXWARELLC</h4>
+        <p class="version">v0.0.1</p>
     </div>
 </body>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', consolas, sans-serif;
 }
 
 .cover {
@@ -30,9 +35,26 @@
 
 .title {
     color: #dfdfdf;
-    font-family: consolas, sans-serif;
     user-select: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 175%;
 }
+
+.subtitle {
+    color: #9f9f9f;
+    user-select: none;
+    font-weight: 200;
+}
+
+.version {
+    color: #9f9f9f;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 20px;
+}
+
 </style>
 
 </html>
